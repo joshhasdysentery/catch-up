@@ -5,6 +5,13 @@ const NewsScreen = (props) => {
   return (
     <View style={styles.screen}>
       <Text>Here's what's happening today.</Text>
+      <FlatList
+        data={this.state.articles}
+        renderItem={({ item }) => <Article article={item} />}
+        keyExtractor={(item) => item.url}
+        refreshing={this.state.refreshing}
+        onRefresh={this.handleRefresh.bind(this)}
+      />
     </View>
   );
 };
