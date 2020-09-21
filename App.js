@@ -1,21 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// * Description: App Entry Point
 
-import Header from './components/Header';
-import NewsScreen from './screens/NewsScreen';
+import React, { Component } from 'react';
 
-export default function App() {
-  return (
-    <View style={styles.screen}>
-      <Header />
-      <NewsScreen />
-    </View>
-  );
+import { Provider } from 'react-redux';
+
+import Router from './src/router';
+import store from './src/redux/store';
+
+export default class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Router />
+      </Provider>
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-  },
-});
